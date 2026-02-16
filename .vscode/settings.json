@@ -1,0 +1,4 @@
+{
+  "dbt.enableNewLineagePanel": true,
+  "dbt.profilesDir": "C:/Users/johannes.leeb/.dbt"
+}
