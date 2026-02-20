@@ -35,7 +35,7 @@ models:
     marts:
       +materialized: table
       +post-hook:
-        - "Comment on table {{ this }}: 'This is a post-hook that runs after the model is built'"
+        - "COMMENT ON TABLE {{ this }} IS 'This is a post-hook that runs after the model is built'"
         - "{{ create_latest_version_view() }}"
     stg:
       +materialized: view
