@@ -14,6 +14,19 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v3
 
+      - name: Decide DBT_TARGET from branch
+        shell: bash
+        run: |
+          echo "BRANCH_NAME=$BRANCH_NAME"
+          if [[ "$BRANCH_NAME" == "main" || "$BRANCH_NAME" == "master" ]]; then
+            TARGET=prod
+          elif [[ "$BRANCH_NAME" == dev_jeff* ]]; then
+            TARGET=dev_jeff
+          else
+            TARGET=dev
+          fi
+          echo "DBT_TARGET=$TARGET" | tee -a $GITHUB_ENV
+
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
@@ -35,8 +48,8 @@ jobs:
       - name: Install dbt deps
         run: dbt deps
 
-      - name: Run dbt debug
-        run: dbt debug
+      - name: dbt debug
+        run: dbt debug --target "${{ env.DBT_TARGET }}"
 
-      - name: Run dbt
-        run: dbt run
+      - name: dbt run
+        run: dbt run --target "${{ env.DBT_TARGET }}"
