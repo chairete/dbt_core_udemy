@@ -29,7 +29,6 @@ jobs:
         run: |
           mkdir -p ~/.dbt
           echo "$DBT_PROFILES_YML" > ~/.dbt/profiles.yml
-          chmod 600 ~/.dbt/rsa_key
         env:
           DBT_PROFILES_YML: ${{ secrets.DBT_PROFILES_YML }}
 
