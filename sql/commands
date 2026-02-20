@@ -1,0 +1,33 @@
+#run to prod
+dbt run --target prod 
+
+dbt seed
+
+
+# use an old state (so the prod state) to run only the models which you like to compile
+# you have to copy the manifesto.json of the prod state to a new folder state so you can use it for the deferred run
+dbt run -m whale_alert --defer --state state
+
+dbt clone --state state
+
+
+## python models for snowflake
+https://repo.anaconda.com/pkgs/snowflake/
+
+##or run
+SELECT * FROM BTC.INFORMATION_SCHEMA.PACKAGES;
+
+  ## workaround for not beeing able to print things is raising Exceptions
+  raise Exception(type(df))
+
+##packages/macros put it into packages.yml
+https://hub.getdbt.com
+
+## install with "dbt deps"
+## in debt packages you can have a look at the implementation of the packages
+
+#dbt documentation
+dbt docs generate
+dbt docs serve
+##launches localhost webserver in your browser
+## localhost:8080
