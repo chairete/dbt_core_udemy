@@ -34,6 +34,9 @@ models:
     # Config indicated by + and applies to all files under models/example/
     marts:
       +materialized: table
+      +post-hook:
+        - "Comment on table {{ this }}: 'This is a post-hook that runs after the model is built'"
+        - "{{ create_latest_version_view() }}"
     stg:
       +materialized: view
   
