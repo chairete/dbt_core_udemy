@@ -16,3 +16,9 @@ https://repo.anaconda.com/pkgs/snowflake/
 
 ##or run
 SELECT * FROM BTC.INFORMATION_SCHEMA.PACKAGES;
+
+  ## workaround for not beeing able to print things is raising Exceptions
+  raise Exception(type(df))
+
+##packages/macros f
+https://hub.getdbt.com
