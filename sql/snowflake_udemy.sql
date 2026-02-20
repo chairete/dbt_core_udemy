@@ -32,3 +32,4 @@ FROM BTC.DBT_LEEB.WHALE_ALERT;
 SELECT *
 FROM BTC.DBT_LEEB.BTC_USD_MAX
 WHERE to_date(replace(snapped_at, ' UTC', '')) = current_date();
+

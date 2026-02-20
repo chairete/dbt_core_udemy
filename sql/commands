@@ -1,0 +1,18 @@
+#run to prod
+dbt run --target prod 
+
+dbt seed
+
+
+# use an old state (so the prod state) to run only the models which you like to compile
+# you have to copy the manifesto.json of the prod state to a new folder state so you can use it for the deferred run
+dbt run -m whale_alert --defer --state state
+
+dbt clone --state state
+
+
+## python models for snowflake
+https://repo.anaconda.com/pkgs/snowflake/
+
+##or run
+SELECT * FROM BTC.INFORMATION_SCHEMA.PACKAGES;

@@ -1,0 +1,1 @@
+START /b D:\__Snowflake\BTC\udemy_venv\Scripts\activate
